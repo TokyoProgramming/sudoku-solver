@@ -1,5 +1,3 @@
-// get Cells
-
 // box1
 const X11 = document.getElementById('X11').lastChild;
 const X12 = document.getElementById('X12').lastChild;
@@ -99,9 +97,93 @@ const X97 = document.getElementById('X97').lastChild;
 const X98 = document.getElementById('X98').lastChild;
 const X99 = document.getElementById('X99').lastChild;
 
+// variables
+const variables = [
+  X11,
+  X12,
+  X13,
+  X14,
+  X15,
+  X16,
+  X17,
+  X18,
+  X19,
+  X21,
+  X22,
+  X23,
+  X24,
+  X25,
+  X26,
+  X27,
+  X28,
+  X29,
+  X31,
+  X32,
+  X33,
+  X34,
+  X35,
+  X36,
+  X37,
+  X38,
+  X39,
+  X41,
+  X42,
+  X43,
+  X44,
+  X45,
+  X46,
+  X47,
+  X48,
+  X49,
+  X51,
+  X52,
+  X53,
+  X54,
+  X55,
+  X56,
+  X57,
+  X58,
+  X59,
+  X61,
+  X62,
+  X63,
+  X64,
+  X65,
+  X66,
+  X67,
+  X68,
+  X69,
+  X71,
+  X72,
+  X73,
+  X74,
+  X75,
+  X76,
+  X77,
+  X78,
+  X79,
+  X81,
+  X82,
+  X83,
+  X84,
+  X85,
+  X86,
+  X87,
+  X88,
+  X89,
+  X91,
+  X92,
+  X93,
+  X94,
+  X95,
+  X96,
+  X97,
+  X98,
+  X99,
+];
+
 // Arrays
 
-// box Arrays
 const box1VariablesArr = [X11, X12, X13, X21, X22, X23, X31, X32, X33];
 const box2VariablesArr = [X41, X42, X43, X51, X52, X53, X61, X62, X63];
 const box3VariablesArr = [X71, X72, X73, X81, X82, X83, X91, X92, X93];
@@ -219,7 +301,53 @@ boxEmptyArrays = [
   boxEmpty9Arr,
 ];
 
+let row1Array = [];
+let row2Array = [];
+let row3Array = [];
+let row4Array = [];
+let row5Array = [];
+let row6Array = [];
+let row7Array = [];
+let row8Array = [];
+let row9Array = [];
+
+let rowsArray = [
+  row1Array,
+  row2Array,
+  row3Array,
+  row4Array,
+  row5Array,
+  row6Array,
+  row7Array,
+  row8Array,
+  row9Array,
+];
+
+let col1Array = [];
+let col2Array = [];
+let col3Array = [];
+let col4Array = [];
+let col5Array = [];
+let col6Array = [];
+let col7Array = [];
+let col8Array = [];
+let col9Array = [];
+
+let colsArray = [
+  col1Array,
+  col2Array,
+  col3Array,
+  col4Array,
+  col5Array,
+  col6Array,
+  col7Array,
+  col8Array,
+  col9Array,
+];
+
 export {
+  rowsArray,
+  colsArray,
   boxEmptyArrays,
   boxEmpty1Arr,
   boxEmpty2Arr,
@@ -270,6 +398,7 @@ export {
   box7VariablesArr,
   box8VariablesArr,
   box9VariablesArr,
+  variables,
   X11,
   X12,
   X13,
