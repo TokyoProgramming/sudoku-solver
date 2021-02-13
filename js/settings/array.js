@@ -1,6 +1,14 @@
-import { rowsArray, colsArray } from './variables.js';
+import {
+  rowsArray,
+  colsArray,
+  subsetRowArrays,
+  subsetColArrays,
+  concatRowArray,
+  concatColArray,
+} from './variables.js';
 import { boxArrays } from './variables.js';
 import { boxEmptyArrays } from './variables.js';
+import { uniqueArr } from './variables.js';
 
 let emptyObj = {};
 const createArr = (boxesArr) => {
@@ -11,7 +19,7 @@ const createArr = (boxesArr) => {
     let boxNumberArr = [];
     let boxEArr = [];
     boxArrays[index] = [];
-    boxEArr[index] = [];
+    boxEmptyArrays[index] = [];
     boxNumberArr = boxArrays[index];
     boxEArr = boxEmptyArrays[index];
 
@@ -36,6 +44,7 @@ const createArr = (boxesArr) => {
 // create rowArray
 const createRowArray = (rowArr) => {
   rowArr.forEach((row, index) => {
+    rowsArray[index] = [];
     let rowArr = rowsArray[index];
     row.forEach((number) => {
       if (number.innerHTML !== '') {
@@ -49,6 +58,7 @@ const createRowArray = (rowArr) => {
 // create colArray
 const createColArray = (colArr) => {
   colArr.forEach((col, index) => {
+    colsArray[index] = [];
     let colArr = colsArray[index];
     col.forEach((number) => {
       if (number.innerHTML !== '') {
@@ -56,7 +66,105 @@ const createColArray = (colArr) => {
       }
     });
   });
+
   return colsArray;
 };
 
-export { createArr, createRowArray, createColArray };
+// ! subset
+
+// create subset concat Array
+let uniqueObj = {};
+let uniqueArrFinder = [];
+const subsetUniqueCountArray = async (cellArr) => {
+  uniqueObj = {};
+  uniqueArrFinder = [];
+
+  //   concat array
+  let arr = [];
+  cellArr.forEach((box, index) => {
+    let uniqueCell = [];
+
+    uniqueArr[index] = [];
+    uniqueCell = uniqueArr[index];
+    box.forEach((el) => {
+      uniqueCell = uniqueCell.concat(el.numbers);
+    });
+    arr.push(uniqueCell);
+  });
+
+  //   get subset total
+  for (let i = 0; i < arr.length; i++) {
+    uniqueObj = {};
+    let uniqueCount = [];
+    uniqueCount = [];
+    uniqueCount = arr[i];
+    uniqueCount.forEach((i) => {
+      uniqueObj[i] = (uniqueObj[i] || 0) + 1;
+    });
+    uniqueArrFinder.push(uniqueObj);
+  }
+
+  return uniqueArrFinder;
+};
+
+let concatArrays = [];
+const concatArr = async (cellArr) => {
+  concatArrays = [];
+  cellArr.forEach((box) => {
+    box.forEach((num) => {
+      concatArrays = concatArrays.concat(num);
+    });
+  });
+
+  // console.log(concatArrays);
+  return concatArrays;
+};
+
+let subsetColArr = [];
+let colArr = [];
+// create subsetColArray
+const createSubsetColArray = async (cellArr) => {
+  colArr = [];
+  colArr = await concatArr(cellArr);
+
+  concatColArray.forEach((el, index) => {
+    concatColArray[index] = [];
+  });
+
+  subsetColArr = [];
+  colArr.forEach((el, index) => {
+    let getCol = +el.cell[2] - 1;
+    concatColArray[getCol].push(el);
+  });
+
+  return concatColArray;
+};
+
+let subsetRowArr = [];
+let rowArr = [];
+// create subsetRowArray
+const createSubsetRowArray = async (cellArr) => {
+  rowArr = [];
+  rowArr = await concatArr(cellArr);
+
+  concatRowArray.forEach((el, index) => {
+    concatRowArray[index] = [];
+  });
+
+  subsetRowArr = [];
+  rowArr.forEach((el) => {
+    let getRow = +el.cell[1] - 1;
+    concatRowArray[getRow].push(el);
+  });
+
+  return concatRowArray;
+};
+
+export {
+  createArr,
+  createRowArray,
+  createColArray,
+  createSubsetRowArray,
+  createSubsetColArray,
+  subsetUniqueCountArray,
+};

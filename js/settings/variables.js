@@ -278,6 +278,71 @@ boxArrays = [
   box9Arr,
 ];
 
+let concatColArray = [];
+concatColArray = [
+  box1Arr,
+  box2Arr,
+  box3Arr,
+  box4Arr,
+  box5Arr,
+  box6Arr,
+  box7Arr,
+  box8Arr,
+  box9Arr,
+];
+
+let concatRowArray = [];
+concatRowArray = [
+  box1Arr,
+  box2Arr,
+  box3Arr,
+  box4Arr,
+  box5Arr,
+  box6Arr,
+  box7Arr,
+  box8Arr,
+  box9Arr,
+];
+
+let subsetRowArrays = [];
+subsetRowArrays = [
+  box1Arr,
+  box2Arr,
+  box3Arr,
+  box4Arr,
+  box5Arr,
+  box6Arr,
+  box7Arr,
+  box8Arr,
+  box9Arr,
+];
+
+let subsetColArrays = [];
+subsetColArrays = [
+  box1Arr,
+  box2Arr,
+  box3Arr,
+  box4Arr,
+  box5Arr,
+  box6Arr,
+  box7Arr,
+  box8Arr,
+  box9Arr,
+];
+
+let uniqueArr = [];
+uniqueArr = [
+  box1Arr,
+  box2Arr,
+  box3Arr,
+  box4Arr,
+  box5Arr,
+  box6Arr,
+  box7Arr,
+  box8Arr,
+  box9Arr,
+];
+
 let boxEmptyArrays = [];
 let boxEmpty1Arr = [];
 let boxEmpty2Arr = [];
@@ -346,6 +411,11 @@ let colsArray = [
 ];
 
 export {
+  concatRowArray,
+  concatColArray,
+  uniqueArr,
+  subsetRowArrays,
+  subsetColArrays,
   rowsArray,
   colsArray,
   boxEmptyArrays,

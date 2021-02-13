@@ -1,4 +1,4 @@
-import { variables } from '../settings/variables.js';
+import { variables, rowArrays } from '../settings/variables.js';
 
 const deleteNum = async (cellArr, rowColBoxArr) => {
   let newArr = [];
@@ -99,6 +99,7 @@ const fillNumber = async (cellArr, rowResult, colResult, boxArr) => {
 
   return foundRes;
 };
+
 let countNum = 0;
 const countFilledNumber = async (boxArr) => {
   countNum = 0;
@@ -109,4 +110,15 @@ const countFilledNumber = async (boxArr) => {
   return countNum;
 };
 
-export { fillNumber, countFilledNumber };
+const fillNumberToCel = async (arr) => {
+  arr.forEach((cell) => {
+    let id = cell.cellId;
+    let row = id[1];
+    let col = id[2];
+    let cellLocation = rowArrays[row - 1][col - 1];
+
+    cellLocation.innerHTML = +cell.number;
+  });
+};
+
+export { fillNumber, countFilledNumber, fillNumberToCel };
